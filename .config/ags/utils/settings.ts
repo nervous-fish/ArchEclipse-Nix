@@ -62,6 +62,7 @@ export const defaultSettings: Settings = {
   },
   chatBot: {
     api: chatBotApis[0],
+    imageGeneration: false,
   },
   booru: {
     api: booruApis[0],
