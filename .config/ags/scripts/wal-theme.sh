@@ -1,8 +1,8 @@
 #!/bin/bash
 
-hyprDir=$HOME/.config/hypr
-current_wallpaper=$(cat $hyprDir/hyprpaper/config/current.conf)
-current_theme=$(bash $hyprDir/theme/scripts/system-theme.sh get)
+dataDir=$ARCHECLDATA/hyprpaper
+current_wallpaper=$(cat $dataDir/config/current.conf)
+current_theme=$(bash ./scripts/system-theme.sh get)
 
 killall wal
 
@@ -10,7 +10,7 @@ killall wal
 if [ $1 ]; then
     current_wallpaper=$1
 else
-    current_wallpaper=$(cat $hyprDir/hyprpaper/config/current.conf)
+    current_wallpaper=$(cat $dataDir/config/current.conf)
 fi
 
 current_wallpaper=${current_wallpaper/\$HOME/$HOME}

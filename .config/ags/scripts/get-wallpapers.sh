@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the file that contains the wallpaper paths
-hyprpaper_config="$HOME/.config/hypr/hyprpaper/config"
+hyprpaper_conf=$ARCHECLDATA/hyprpaper/config
 defaults="$HOME/.config/wallpapers/defaults"
 custom="$HOME/.config/wallpapers/custom"
 
@@ -22,7 +22,7 @@ if [ "$1" == "--current" ]; then
         # Trim any whitespace from the path and add to the array
         path=$(echo "$path" | sed "s~^\$HOME~$HOME~" | xargs)
         wallpaper_paths+=("\"$path\"")
-    done <"$hyprpaper_config/$monitor/defaults.conf"
+    done <"$hyprpaper_conf/$monitor/defaults.conf"
 
 elif [ "$1" == "--defaults" ]; then
     # Read the folder and add all the wallpapers to the array

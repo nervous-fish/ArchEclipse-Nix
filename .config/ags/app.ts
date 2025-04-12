@@ -14,9 +14,9 @@ import BarHover from "./widgets/bar/BarHover"
 import OSD from "./widgets/OSD"
 import { getMonitorName } from "./utils/monitor"
 import { logTime } from "./utils/time"
+import { handleRequest } from "./utils/request"
 import LeftPanel from "./widgets/leftPanel/LeftPanel"
 import LeftPanelHover from "./widgets/leftPanel/LeftPanelHover"
-
 
 const main = () => App.get_monitors().map(monitor =>
 {
@@ -44,5 +44,8 @@ App.start({
     main()
     {
         main();
+    },
+    requestHandler(request: string, res: (response: any) => void) {
+        handleRequest(request, res);
     },
 });

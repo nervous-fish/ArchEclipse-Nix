@@ -51,7 +51,7 @@ const FetchWallpapers = async () => {
         ),
         execAsync("bash ./scripts/get-wallpapers.sh --custom").then(JSON.parse),
       ]);
-
+    
     defaultThumbnails = defaultThumbs;
     customThumbnails = customThumbs;
     defaultWallpapers = defaultWalls;
@@ -68,6 +68,7 @@ const FetchWallpapers = async () => {
       allWallpapers.set(shuffledWallpapers);
       allThumbnails.set(shuffledThumbnails);
     }
+
   } catch (err) {
     notify({ summary: "Error", body: String(err) });
   }
@@ -75,7 +76,7 @@ const FetchWallpapers = async () => {
 
 FetchWallpapers();
 
-monitorFile("./../wallpapers/custom", FetchWallpapers);
+monitorFile(`${HOME}/wallpapers/custom`, FetchWallpapers);
 wallpaperType.subscribe(FetchWallpapers);
 
 function Wallpapers(monitor: string) {
@@ -100,7 +101,7 @@ function Wallpapers(monitor: string) {
                       const command = {
                         sddm: `pkexec sh -c 'sed -i "s|^background=.*|background=\"${wallpaper}\"|" /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf'`,
                         lockscreen: `bash -c "cp ${wallpaper} $HOME/.config/wallpapers/lockscreen/wallpaper"`,
-                        workspace: `bash -c "$HOME/.config/hypr/hyprpaper/set-wallpaper.sh ${selectedWorkspace.get()} ${wallpaper} ${monitor}"`,
+                        workspace: `bash -c "./scripts/set-wallpaper.sh ${selectedWorkspace.get()} ${wallpaper} ${monitor}"`,
                       }[target];
 
                       execAsync(command!)
@@ -203,7 +204,7 @@ function Wallpapers(monitor: string) {
       className="reload-wallpapers"
       label="󰑐"
       onClicked={() => {
-        execAsync('bash -c "$HOME/.config/hypr/hyprpaper/reload.sh"')
+        execAsync('bash -c "./scripts/reload-wallpapers.sh"')
           .finally(FetchWallpapers)
           .catch(notify);
       }}
@@ -227,7 +228,7 @@ function Wallpapers(monitor: string) {
             Math.floor(Math.random() * allWallpapers.get().length)
           ];
         execAsync(
-          `bash -c "$HOME/.config/hypr/hyprpaper/set-wallpaper.sh ${selectedWorkspace.get()} ${randomWallpaper} ${monitor}"`
+          `bash -c "./scripts/set-wallpaper.sh ${selectedWorkspace.get()} ${randomWallpaper} ${monitor}"`
         )
           .then(() => {
             const newWallpaper = JSON.parse(

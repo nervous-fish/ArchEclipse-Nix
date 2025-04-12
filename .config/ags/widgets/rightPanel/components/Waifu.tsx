@@ -20,9 +20,9 @@ import { Waifu } from "../../../interfaces/waifu.interface";
 import { readJson } from "../../../utils/json";
 import { booruApis } from "../../../constants/api.constants";
 import { PinImageToTerminal, previewFloatImage } from "../../../utils/image";
-const waifuDir = "./assets/booru/waifu";
+const waifuDir = `${DATADIR}/ags/assets/booru/waifu`;
 
-const terminalWaifuPath = `./assets/terminal/icon.webp`;
+const terminalWaifuPath = `${DATADIR}/ags/assets/terminal/icon.webp`;
 
 const fetchImage = async (image: Waifu, saveDir: string) => {
   const url = image.url!;

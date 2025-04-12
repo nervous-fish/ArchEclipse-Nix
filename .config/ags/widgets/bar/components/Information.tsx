@@ -15,7 +15,7 @@ import {
   focusedClient,
   globalTransition,
 } from "../../../variables";
-import { bind, Variable } from "../../../../../../../usr/share/astal/gjs";
+import { bind, Variable } from "astal";
 import { App, Astal, Gtk } from "astal/gtk3";
 import CustomRevealer from "../../CustomRevealer";
 import { notify } from "../../../utils/notification";

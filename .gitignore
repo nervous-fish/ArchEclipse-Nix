@@ -7,6 +7,10 @@
 !.config/
 .config/*
 
+!nix
+!flake.nix
+!flake.lock
+
 # Include hyprland config
 !.config/hypr/
 # Include kitty config
@@ -30,6 +34,8 @@
 !.config/fastfetch/
 # wallpapers
 !.config/wallpapers/
+# uwsm
+!.config/uwsm/
 
 # include icons (cursort theme)
 !.icons/

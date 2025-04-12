@@ -1,10 +1,11 @@
 #!/bin/bash
 
-hyprDir=$HOME/.config/hypr
+dataDir=$ARCHECLDATA/hypr
 
-theme_conf=$hyprDir/theme/theme.conf
+theme_conf=$dataDir/theme/theme.conf
 
 if [ ! -f $theme_conf ]; then
+    mkdir -p $dataDir/theme
     echo "theme=dark" >$theme_conf
 fi
 

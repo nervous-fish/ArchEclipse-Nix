@@ -1,5 +1,4 @@
 #!/bin/bash
-hyprDir=$HOME/.config/hypr # hypr directory
 
 new_wallpaper=""
 
@@ -35,7 +34,7 @@ fi
 
 #############################################
 
-current_config=$hyprDir/hyprpaper/config/$monitor/defaults.conf # config file
+current_config=$ARCHECLDATA/hyprpaper/config/$monitor/defaults.conf # config file
 current_workspace=$(hyprctl monitors | awk -v monitor="$monitor" '/Monitor/ {m=$2} /active workspace/ && m == monitor {print $3}')
 
 #############################################
@@ -52,7 +51,7 @@ hyprctl hyprpaper preload "$new_wallpaper" # preload wallpaper
 
 sed -i "s|w-${workspace_id}=.*|w-${workspace_id}=|" $current_config # set wallpaper in config
 
-for conf in $hyprDir/hyprpaper/config/*/defaults.conf; do
+for conf in $ARCHECLDATA/hyprpaper/config/*/defaults.conf; do
     # unload old wallpaper if it is not in use in other workspaces
     if ! grep -q "$old_wallpaper" "$conf"; then
         hyprctl hyprpaper unload "$old_wallpaper"
@@ -65,7 +64,7 @@ done
 #############################################
 
 if [ "$workspace_id" = "$current_workspace" ]; then
-    $hyprDir/hyprpaper/w.sh "$new_wallpaper" $monitor & # set wallpaper
+    ./scripts/w.sh "$new_wallpaper" $monitor & # set wallpaper
 fi
 
 # #############################################

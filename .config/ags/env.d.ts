@@ -1,4 +1,6 @@
 const SRC: string
+const HOME: string
+const DATADIR: string
 
 declare module "inline:*" {
     const content: string

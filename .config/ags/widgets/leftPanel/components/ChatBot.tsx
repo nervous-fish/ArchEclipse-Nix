@@ -7,7 +7,7 @@ import { chatBotApi, globalTransition } from "../../../variables";
 import ToggleButton from "../../toggleButton";
 import { chatBotApis } from "../../../constants/api.constants";
 // Constants
-const MESSAGE_FILE_PATH = "./assets/chatbot";
+const MESSAGE_FILE_PATH = `${DATADIR}/ags/assets/chatbot`;
 
 // State
 const imageGeneration = Variable<boolean>(false);

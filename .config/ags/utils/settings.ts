@@ -6,7 +6,8 @@ import { barWidgetSelectors, leftPanelWidgetSelectors } from "../constants/widge
 import { booruApis, chatBotApis } from "../constants/api.constants";
 import { WaifuClass } from "../interfaces/waifu.interface";
 import { dateFormats } from "../constants/date.constants";
-export const settingsPath = "./assets/settings/settings.json";
+
+export const settingsPath = `${DATADIR}/ags/assets/settings/settings.json`;
 
 
 export const defaultSettings: Settings = {

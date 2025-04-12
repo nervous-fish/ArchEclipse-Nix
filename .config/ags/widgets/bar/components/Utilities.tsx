@@ -1,7 +1,7 @@
 import Brightness from "../../../services/brightness";
 const brightness = Brightness.get_default();
 import CustomRevealer from "../../CustomRevealer";
-import { bind, execAsync } from "../../../../../../../usr/share/astal/gjs";
+import { bind, execAsync } from "astal";
 
 import Wp from "gi://AstalWp";
 
@@ -35,7 +35,7 @@ function Theme() {
         execAsync([
           "bash",
           "-c",
-          "$HOME/.config/hypr/theme/scripts/set-global-theme.sh switch",
+          "./scripts/set-global-theme.sh switch",
         ]).then(() => getIcon().then((icon) => (self.label = icon)));
       }}
       label=""

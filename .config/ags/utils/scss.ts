@@ -10,7 +10,7 @@ const tmpCss = `/tmp/tmp-style.css`
 const tmpScss = `/tmp/tmp-style.scss`
 const scss_dir = `./scss`
 
-const walColors = `./../../.cache/wal/colors.scss`
+const walColors = `${HOME}/.cache/wal/colors.scss`
 const defaultColors = `./scss/defaultColors.scss`
 
 export const getCssPath = () =>
@@ -24,7 +24,6 @@ export async function refreshCss()
     const scss = `./scss/style.scss`
 
     try {
-
         await execAsync(`bash -c "echo '
         $OPACITY: ${globalOpacity.get().value};
         $ICON-SIZE: ${globalIconSize.get().value}px;
@@ -49,6 +48,6 @@ monitorFile(
 
 monitorFile(
     // directory that contains pywal colors
-    `./../../.cache/wal/colors.scss`,
+    `${HOME}/.cache/wal/colors.scss`,
     () => refreshCss()
 )

@@ -10,8 +10,8 @@ import { Gdk, Gtk } from "astal/gtk3";
 import { Button } from "astal/gtk3/widget";
 const Hyprland = hyprland.get_default();
 
-const waifuPath = "./assets/booru/waifu";
-const imageUrlPath = "./assets/booru/images";
+const waifuPath = `${DATADIR}/ags/assets/booru/waifu`;
+const imageUrlPath = `${DATADIR}/ags/assets/booru/images`;
 
 const fetchImage = async (
   image: Waifu,

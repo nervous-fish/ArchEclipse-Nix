@@ -19,7 +19,7 @@ import ToggleButton from "./toggleButton";
 import { barWidgetSelectors } from "../constants/widget.constants";
 const Hyprland = hyprland.get_default();
 
-const hyprCustomDir: string = "$HOME/.config/hypr/configs/custom/";
+const hyprCustomDir: string = `${DATADIR}/hypr/configs/`;
 
 function buildConfigString(keys: string[], value: any): string {
   if (keys.length === 1) return `${keys[0]}=${value}`;

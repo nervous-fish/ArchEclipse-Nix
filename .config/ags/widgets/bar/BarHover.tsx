@@ -1,5 +1,5 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3";
-import { Window } from "../../../../../../usr/share/astal/gjs/gtk3/widget";
+import { Window } from "astal/gtk3/widget";
 import { barOrientation, barVisibility } from "../../variables";
 import { bind } from "astal";
 

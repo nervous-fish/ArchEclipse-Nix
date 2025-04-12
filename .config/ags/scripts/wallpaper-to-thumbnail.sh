@@ -1,9 +1,9 @@
 #!/bin/bash
 
 default_wallpapers="$HOME/.config/wallpapers/defaults"                       # all wallpapers directory
-default_wallpapers_thumbnails="$HOME/.config/ags/assets/thumbnails/defaults" # thumbnails wallpapers directory
+default_wallpapers_thumbnails="$ARCHECLDATA/ags/assets/thumbnails/defaults" # thumbnails wallpapers directory
 custom_wallpapers="$HOME/.config/wallpapers/custom"                          # custom wallpapers directory
-custom_wallpapers_thumbnails="$HOME/.config/ags/assets/thumbnails/custom"    # thumbnails custom wallpapers directory
+custom_wallpapers_thumbnails="$ARCHECLDATA/ags/assets/thumbnails/custom"    # thumbnails custom wallpapers directory
 
 # Ensure thumbnail directories exist
 mkdir -p "$default_wallpapers_thumbnails" "$custom_wallpapers_thumbnails"

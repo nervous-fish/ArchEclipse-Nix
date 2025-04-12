@@ -20,7 +20,7 @@ export function previewFloatImage(imagePath: string)
 export const PinImageToTerminal = (image: Waifu) =>
 {
     execAsync(
-        `bash -c "cmp -s ${image.url_path} ${terminalWaifuPath} && { rm ${terminalWaifuPath}; echo 1; } || { cp ${image.url_path} ${terminalWaifuPath}; echo 0; } && pkill -SIGUSR1 zsh"`
+        `bash -c "cmp -s ${image.url_path} ${terminalWaifuPath} && { rm ${terminalWaifuPath}; echo 1; } || { cp ${image.url_path} ${terminalWaifuPath}; echo 0; } && pkill -SIGUSR1 fish"`
     )
         .then((output) =>
             notify({

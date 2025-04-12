@@ -23,8 +23,8 @@ const images = Variable<Waifu[]>([]);
 
 const fetchedTags = Variable<string[]>([]);
 
-const imagePreviewPath = "./assets/booru/previews";
-const imageUrlPath = "./assets/booru/images";
+const imagePreviewPath = `${DATADIR}/ags/assets/booru/previews`;
+const imageUrlPath = `${DATADIR}/ags/assets/booru/images`;
 
 const ensureRatingTagFirst = () => {
   let tags: string[] = booruTags.get();

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-defaults="$HOME/.config/ags/assets/thumbnails/defaults"
-custom="$HOME/.config/ags/assets/thumbnails/custom"
+defaults="$ARCHECLDATA/ags/assets/thumbnails/defaults"
+custom="$ARCHECLDATA/ags/assets/thumbnails/custom"
 
 # Initialize an empty array for the wallpaper paths
 wallpaper_paths=()

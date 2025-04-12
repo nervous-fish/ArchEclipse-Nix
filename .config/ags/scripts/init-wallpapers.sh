@@ -1,9 +1,7 @@
 #!/bin/bash
 
-hyprDir=$HOME/.config/hypr # hypr directory
-
-hyprpaper_conf=$hyprDir/hyprpaper/config       # hyprpaper config
-backup=$hyprDir/hyprpaper/config/defaults.conf # backup config
+hyprpaper_conf=$ARCHECLDATA/hyprpaper/config       # hyprpaper config
+defaults=$HOME/.config/hypr/hyprpaper/config/defaults.conf # backup config
 
 default_wallpapers=$HOME/.config/wallpapers/defaults # default wallpapers directory
 custom_wallpapers=$HOME/.config/wallpapers/custom    # custom wallpapers directory
@@ -24,9 +22,9 @@ for monitor in $monitors; do
     monitor_conf=$hyprpaper_conf/$monitor/defaults.conf
 
     if [ ! -s "$monitor_conf" ]; then
-        touch $monitor_conf
         mkdir -p $hyprpaper_conf/$monitor
-        cp $backup $monitor_conf
+        touch $monitor_conf
+        cp $defaults $monitor_conf
 
         echo "Config file created! for $monitor"
     fi
@@ -50,6 +48,6 @@ echo "Wallpapers preloaded!"
 
 #################################################
 
-$hyprDir/hyprpaper/auto.sh & # start auto wallpaper script
+./scripts/auto-wallpapers.sh & # start auto wallpaper script
 
 echo "Auto wallpaper script started!"
