@@ -50,7 +50,7 @@ in {
     };
     home.activation = {
       init = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        mkdir -p ${dataRoot}/ags/assets
+        mkdir -p ${dataRoot}/ags/assets/binaries
         mkdir -p ${dataRoot}/hypr/configs
         mkdir -p ${dataRoot}/hyprpaper/config
       '';

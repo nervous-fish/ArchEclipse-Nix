@@ -195,7 +195,7 @@ function Clock() {
 function Bandwidth() {
   const bandwidth = Variable<string[]>(["0", "0"]).poll(
     1000,
-    ["./assets/binaries/bandwidth"],
+    [`${DATADIR}/ags/assets/binaries/bandwidth`],
     (out) => {
       return [String(JSON.parse(out)[0]), String(JSON.parse(out)[1])];
     }
