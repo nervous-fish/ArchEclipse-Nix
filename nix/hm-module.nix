@@ -9,6 +9,9 @@ self: {
   inherit (lib.options) mkOption mkEnableOption;
   cfg = config.programs.archeclipse;
   dataRoot = "${config.home.homeDirectory}/.local/share/archeclipse";
+  pywalThief = pkgs.pywal.overrideAttrs (old: {
+    propagatedBuildInputs = (old.propagatedBuildInputs or []) ++ [ pkgs.python312Packages.colorthief ];
+  });
 in {
   options.programs.archeclipse = {
     enable = mkEnableOption "archeclipse";
@@ -19,10 +22,46 @@ in {
       ARCHECLDATA=dataRoot;
     };
 
-    home.packages = [ 
+    home.packages = (with pkgs; [ 
       self.inputs.ags.packages.${system}.agsFull
       self.inputs.ags.packages.${system}.io
-    ];
+      sassc
+      # SYSTEM
+      bluez
+      bluez-tools   
+      blueman
+      networkmanager
+      networkmanagerapplet
+      pamixer
+      pavucontrol
+      playerctl
+      brightnessctl
+      hyprcursor
+      hypridle
+      hyprsunset
+      hyprshot
+      socat
+      swayimg
+      kitty
+      light
+      lolcat
+      wl-clipboard
+      gcc
+      # UI
+      pywalThief
+      fastfetch
+      gtk4
+      gnome-themes-extra
+      gvfs
+      hyprlock
+      hyprpaper
+      noto-fonts
+      # EXTRA
+      cmake
+      meson
+      cpio
+      pkg-config
+    ]);
 
     home.file."${config.home.homeDirectory}/.config/uwsm".source = ../.config/uwsm;
 
@@ -48,6 +87,7 @@ in {
       size = 24;
       gtk.enable = true;
     };
+
     home.activation = {
       init = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         mkdir -p ${dataRoot}/ags/assets/binaries
